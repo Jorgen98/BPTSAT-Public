@@ -1,5 +1,5 @@
 
-# Brno Transit System Analysis Tool
+# Brno Public Transit System Analysis Tool
 Tento repozitár obsahuje kompletnú implementáciu diplomovej práce Analýza a vizualizace dat hromadné dopravy města Brna.
 
 This repository contains the complete implementation of the diploma thesis Analysis and Visualisation of Brno Public Transport Data.
@@ -11,7 +11,9 @@ xlazur00@stud.fit.vutbr.cz
 
 ## Podrobné informácie
 
-### Názov práce
+https://www.fit.vut.cz/research/product/786/
+
+### Názov práce  
 
  Analýza a vizualizace dat hromadné dopravy města Brna
 
@@ -73,8 +75,8 @@ The application autonomously monitors and records the behaviour of Brno's transp
 
 ## Poznámka k static_files
 
-Nástroj pracuje s mapovými podkladmi mesta Brna. Vzľadom na proprietárnu povahu týchto dát sú v odovzdanom riešení iba ukážky formátu, s ktorým program pracuje. Formát pozostáva z poľa bodov a indexov a susedov, do ktorých je možné z daného bodu prejsť. Aby bolo možné nástroj používať, je nevyhnutné dodať do priečinka príslušné mapové podklady v danom formáte.
+Nástroj pracuje s mapovými podkladmi mesta Brna. Vzľadom na proprietárnu povahu týchto dát sú v riešení iba ukážky formátu, s ktorým program pracuje. Formát pozostáva z poľa bodov a indexov a susedov, do ktorých je možné z daného bodu prejsť. Aby bolo možné nástroj používať, je nevyhnutné dodať do priečinka príslušné mapové podklady v danom formáte.
 
 ## Note on static_files
 
-The tool works with map documents of the city of Brno. Due to the proprietary nature of this data, only samples of the format the program works with are included in the submitted solution. The format consists of an array of points and indices and neighbours that can be navigated to from a given point. In order to be able to use the tool, it is necessary to supply the appropriate map documents in the given format to the folder.
+The tool works with map documents of the city of Brno. Due to the proprietary nature of this data, only samples of the format the program works with are included in the solution. The format consists of an array of points and indices and neighbours that can be navigated to from a given point. In order to be able to use the tool, it is necessary to supply the appropriate map documents in the given format to the folder.
