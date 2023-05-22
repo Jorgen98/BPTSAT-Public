@@ -1,0 +1,449 @@
+/*
+ * DP - Juraj Lazúr, xlazur00
+ * FIT VUT, Božetěchova 2, 612 00 Brno, Česká republika
+ *
+ * Máj 2023
+ */
+
+:root {
+  --ligth-color: rgba(255, 255, 255, 1);
+  --border-color: rgba(206, 212, 218, 0.6);
+  --hover-color: rgba(41, 91, 172, 1);
+  --text-color: rgba(0, 0, 0, 1);
+}
+
+
+html, body, #container {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.App {
+  height: 100%;
+}
+
+.Map {
+  height: 100%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.leaflet-control-container {
+  position: absolute;
+  width: 100%;
+}
+
+button {
+  font-size: 1.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0.25rem;
+  background-color: var(--border-color);
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover, .p-dropdown:hover, .p-dropdown-item:hover {
+  background-color: var(--hover-color);
+  color: var(--ligth-color);
+}
+
+.p-dropdown {
+  font-size: 1.15rem;
+  width: 15rem;
+  color: var(--text-color);
+  background-color: var(--ligth-color);
+  cursor: pointer;
+  margin: 0.25rem auto;
+}
+
+.p-inputtext {
+  margin: 0.15rem !important;
+}
+
+.p-dropdown-panel {
+  padding: 0.25rem;
+  color: var(--text-color);
+  background-color: var(--border-color);
+  min-width: 15rem;
+  cursor: pointer;
+}
+
+.p-dropdown-filter {
+  width: -moz-available !important;
+  font-size: 1.15rem;
+}
+
+.p-dropdown-items-wrapper {
+  width: -moz-available !important;
+  margin: 0.15rem !important;
+}
+
+.p-dropdown-item {
+  background-color: var(--ligth-color);
+  margin: 0.25rem !important;
+  padding: 0.25rem !important;
+  border: 0.15rem solid var(--border-color);
+}
+
+.leaflet-control-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.c_control_info {
+  height: 2rem;
+  background-color: var(--text-color);
+  z-index: 1000;
+  opacity: 0.7;
+  color: var(--ligth-color);
+  display: flex;
+  padding: 0.25rem 1rem;
+  font-size: 1rem;
+}
+
+.c_control_info_img {
+  height: 2rem;
+}
+
+a + a {
+  padding: 0 0 0 1rem;
+}
+
+.c_control_info_in_l {
+  margin: auto auto auto 0;
+}
+
+.c_control_info_in_r {
+  margin: auto 0 auto auto;
+}
+
+.c_control_main {
+  display: flex;
+  margin: 1rem;
+  cursor: initial;
+  height: calc(100vh - 4.5rem);
+}
+
+.c_control_left {
+  width: 20%;
+  display: flex;
+}
+
+.c_control_center {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.c_control_right {
+  width: 20%;
+  z-index: 1000;
+  height: calc(100vh - 4.5rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.c_control_zoom {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 1000;
+}
+
+.c_control_zoom button {
+  margin: 0 0 0.25rem 0;
+}
+
+.p-button {
+  margin: 0 auto 0.5rem auto !important;
+  padding: 0.5rem 0.75rem !important;
+  width: 2.5rem;
+}
+
+.s_main_div {
+  margin: 0 auto 0 auto;
+  z-index: 1000;
+  background-color: var(--border-color);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.s_main_radio {
+  margin: 0 auto;
+  z-index: 1000;
+  background-color: var(--border-color);
+  font-size: 1.15rem;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.s_main_radio input {
+  margin: auto 0.25rem;
+}
+
+.s_main_radio_div {
+  margin: 0.25rem auto;
+}
+
+.c_main_div {
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  width: 100%;
+  background-color: var(--border-color);
+  margin: auto auto 0 auto;
+}
+
+.c_categories_in_text {
+  width: 3rem;
+  font-size: 1rem;
+  padding: 0.25rem !important;
+  margin: auto 0;
+  border: none;
+}
+
+.c_categories_in_color {
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: auto 0;
+}
+
+.c_categories_in_color::-webkit-color-swatch,
+.c_categories_in_color::-moz-color-swatch {
+  border: none;
+}
+
+.c_categories_cat {
+  display: flex;
+  height: 2.2rem;
+  justify-content: center;
+}
+
+.c_categories_but {
+  font-size: 1rem;
+  width: 2rem;
+  height: 2rem;
+  margin: auto 0.15rem;
+  background-color: unset;
+  font-weight: bold;
+}
+
+p.c_categories_in_text {
+  font-size: 1rem;
+  padding: 0 1rem;
+  width: fit-content;
+  margin: auto 0;
+}
+
+.c_categories_stamps_div {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+
+.c_categories_stamps_div>* {
+  flex: 0 0 3.5vw;
+}
+
+.c_categories_in_stamp {
+  font-size: 0.75rem;
+  min-width: 4rem;
+}
+
+.c_categories_in_stamp_sel {
+  border: 0.25rem solid var(--hover-color);
+  font-size: 0.75rem;
+  background-color: transparent !important;
+  color: black !important;
+}
+
+.c_categories_add_but {
+  margin: 0.25rem;
+}
+
+.st_main_div {
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem;
+  overflow-y: auto;
+  align-items: center;
+  min-height: 2rem;
+}
+
+.st_item {
+  display: flex;
+  margin: 0.25rem 0;
+  width: 100%;
+}
+
+.st_one_item {
+  display: flex;
+  margin: 0.25rem 0;
+  width: 100%;
+  height: 100%;
+}
+
+.st_item_check {
+  font-size: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+#apply {
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.st_item_checked {
+  font-size: 1rem;
+  background-color: var(--hover-color);
+  color: var(--ligth-color);
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.st_item_name {
+  display: flex;
+  width: 40%;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+
+button + .st_item_name {
+  width: 100%;
+}
+
+.st_item_name p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0.10rem;
+}
+
+.st_item_values {
+  display: flex;
+  width: 60%;
+  margin: auto 0;
+  height: 1rem;
+}
+
+.st_item_checkBox {
+  width: 2rem;
+  height: 2rem;
+}
+
+.c_subcontrol_div {
+  background-color: var(--border-color);
+  margin: 0 0 0 auto;
+  width: 85%;
+}
+
+.c_subcontrol_menu {
+  margin-bottom: 0.25rem;
+}
+
+.c_subcontrol_body_content {
+  height: calc(100vh - 8.75rem);
+  display: flex;
+  flex-direction:column;
+}
+
+.c_subcontrol_selected {
+  background-color: var(--hover-color);
+  color: var(--ligth-color);
+}
+
+.p-calendar {
+  width: 100%;
+}
+
+.p-datepicker-title {
+  display: contents;
+}
+
+.p-disabled {
+  opacity: 25%;
+}
+
+.p-datepicker-prev, .p-datepicker-next {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 1rem;
+}
+
+.p-datepicker-month, .p-datepicker-year {
+  font-size: 1rem;
+  margin: 0 auto !important;
+  width: auto;
+}
+
+.p-highlight {
+  background-color: var(--hover-color);
+  color: var(--ligth-color);
+}
+
+.c_subcontrol_unselected {
+  background-color: unset;
+}
+
+.p-inline-message {
+  z-index: 1000;
+  margin: 1rem auto;
+  font-size: 1.2rem;
+  width: max-content;
+  background-color: var(--hover-color);
+  color: var(--ligth-color);
+  padding: 0.25rem;
+}
+
+.p-inline-message-icon {
+  margin-right: 1rem;
+}
+
+.c_control_contributors {
+  margin: auto 0 0 auto;
+  height: 1rem;
+  background-color: var(--ligth-color);
+}
+
+@media only screen and (max-width: 1400px) {
+  .c_control_left {
+    width: 30%;
+  }
+
+  .c_control_center {
+    width: 40%;
+  }
+
+  .c_control_right {
+    width: 30%;
+  }
+}
