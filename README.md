@@ -27,10 +27,6 @@ xlazur00@stud.fit.vutbr.cz
 
 ## Podrobné informácie
 
-https://www.fit.vut.cz/research/product/786/
-
-https://youtu.be/SoA0mQxcK-k
-
 ### Názov práce  
 
  Analýza a vizualizace dat hromadné dopravy města Brna
