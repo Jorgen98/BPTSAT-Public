@@ -2,7 +2,7 @@
 # Brno Public Transit System Analysis Tool
 Tento repozitár obsahuje kompletnú implementáciu diplomovej práce Analýza a vizualizace dat hromadné dopravy města Brna.
 
-[Live demo](https://lotrando.fit.vutbr.cz/brno-PTSAT/)
+[Live demo](https://pclazur.fit.vutbr.cz/bptsat)
 
 [Produkt](https://www.fit.vut.cz/research/product/786/)
 
@@ -12,7 +12,7 @@ Tento repozitár obsahuje kompletnú implementáciu diplomovej práce Analýza a
 
 This repository contains the complete implementation of the diploma thesis Analysis and Visualisation of Brno Public Transport Data.
 
-[Live demo](https://lotrando.fit.vutbr.cz/brno-PTSAT/)
+[Live demo](https://pclazur.fit.vutbr.cz/bptsat)
 
 [Product](https://www.fit.vut.cz/research/product/786/)
 
